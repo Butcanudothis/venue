@@ -1,6 +1,7 @@
 
 import { Nunito } from 'next/font/google';
 import Navbar from 'app/components/navbar/Navbar.tsx';
+import ClientOnly from './components/ClientOnly';
 
 const nunito = Nunito({ subsets: ['latin'] })
 
@@ -17,7 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={nunito.className}>
+        <ClientOnly>
+          
         <Navbar />
+        </ClientOnly>
+
         {children}</body>
     </html>
   )
