@@ -1,7 +1,9 @@
+'use client';
 import React from "react";
 import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
+import UserMenu from "./UserMenu";
 const navbar = () => {
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm">
@@ -12,12 +14,13 @@ const navbar = () => {
 
           items-center
           justify-between
-          px-4 
+          px-4
           gap-3
           md:gap-0"
           >
             <Logo />
             <Search />
+            <UserMenu />
           </div>
         </Container>
       </div>
