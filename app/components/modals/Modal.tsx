@@ -113,10 +113,11 @@ const Modal: React.FC<ModalProps> = ({
             <div
               className="
         flex
-        flex-row
+        flex-col
         gap-2
         p-6"
             >
+              <div className="flex flex-row items-center gap-4 w-full">
               {secondaryAction && secondaryActionLabel && (
                 <Button
                   outline
@@ -124,12 +125,14 @@ const Modal: React.FC<ModalProps> = ({
                   onClick={handleSecondaryAction}
                   disabled={disabled}
                 />
-              )}{" "}
+              )}
               <Button
                 label={actionLabel}
                 onClick={handleSubmit}
                 disabled={disabled}
               />
+              </div>
+              {footer}
             </div>
           </div>
         </div>
