@@ -54,6 +54,11 @@ const LoginModal = () => {
     })
   };
 
+  const toggleModal = useCallback(() => {
+    LoginModal.onClose();
+    registerModal.onOpen();
+  }
+  , [LoginModal, registerModal]);
   const bodyContent = (
     <div className="flex flex-col space-y-4">
       <Heading
@@ -98,12 +103,12 @@ const LoginModal = () => {
         <div className="text-neutral-500 text-center mt-4 font-light">
           <div className="justify-center flex flex-row items-center gap-2">
             <div>
-              Already have an account?
+              First time using Venue?
             </div>
-           <div onClick={registerModal.onClose}
+           <div onClick={toggleModal}
            className="text-neutral-800 cursor hover:underline"
            >
-            Log in
+            Create an account
            </div>
 
           </div>
