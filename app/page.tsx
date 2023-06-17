@@ -1,4 +1,5 @@
 // import css
+export const dynamic = 'force-dynamic'
 import '../app/globals.css'
 import getCurrentUser from './actions/getCurrentUser';
 import getListings, { IListingsParams } from './actions/getListings';
