@@ -1,3 +1,4 @@
+'use client'
 import useCountries from "@/app/hooks/useCountries";
 import { IconType } from "react-icons";
 import Avatar from "../Avatar";
@@ -78,7 +79,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
         <div className="text-lg font-light">Description</div>
         <hr/>
         <Map center={coordinates} />
-        
+
     </div>
   );
 };
