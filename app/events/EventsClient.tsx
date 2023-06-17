@@ -1,7 +1,12 @@
+'use client'
+import { useCallback, useState } from "react";
 import Container from "../components/Container";
 import Heading from "../components/Heading";
 import { SafeReservation, SafeUser } from "../types";
-
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import toast from "react-hot-toast";
+import ListingCard from "../components/listings/ListingCard";
 interface EventsClientProps {
     reservations: SafeReservation[];
     currentUser?: SafeUser | null;
@@ -12,36 +17,61 @@ const EventsClient: React.FC<EventsClientProps> = ({
     reservations,
     currentUser,
 }) => {
+    const router = useRouter();
+    const [deletingId, setDeletingId] = useState("");
+
+    const onCancel = useCallback(
+      (id: string) => {
+        setDeletingId(id);
+        axios.delete(`/api/reservations/${id}`).then(() => {
+          toast.success("Reservation cancelled");
+          router.refresh();
+        }).catch(() => {
+            toast.error("Something went wrong");
+            }).finally(() => {
+                setDeletingId("");
+            }
+        );
+      },
+      [router],
+    )
+
     return (
+
         <Container>
             <Heading
                 title="Your Events"
-                subtitle="Here are the events Venues you've reserved."
+                subtitle="Here are the events you've hosted to or are going to."
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="
+                mt-10
+                grid
+                grid-cols-1
+                sm:grid-cols-2
+                md:grid-cols-3
+                lg:grid-cols-4
+                xl:grid-cols-5
+                2xl:grid-cols-6
+                gap-8
+                "
+            >
                 {reservations.map((reservation) => {
                     return (
-                        <div
-                            className="bg-white shadow-lg rounded-lg overflow-hidden"
+                        <ListingCard
                             key={reservation.id}
-                        >
-                            <div className="bg-cover bg-center h-56 p-4" style={{ backgroundImage: `url(${reservation.listing.pictureUrl})` }}></div>
-                            <div className="p-4">
-                                <p className="uppercase tracking-wide text-sm font-bold text-gray-700">{reservation.listing.category}</p>
-                                <p className="text-3xl text-gray-900">${reservation.listing.price}</p>
-                                <p className="text-gray-700">{reservation.listing.title}</p>
-                                <div className="mt-4">
-                                    <a href="#" className="text-indigo-500 hover:text-indigo-400 font-semibold text-sm">View</a>
-                                </div>
-                            </div>
-                        </div>
-                    )
+                            data={reservation.listing}
+                            reservation={reservation}
+                            onAction={onCancel}
+                            disabled={deletingId === reservation.id}
+                            actionLabel="Cancel"
+                            actionId={reservation.id}
+                            currentUser={currentUser}
+                        />
+                    );
                 })}
             </div>
-            
-
         </Container>
-    )
+    );
 }
 
 export default EventsClient;

@@ -23,7 +23,6 @@ export default async function Home() {
         <div
           className="
             pt-24
-            p-4
             grid
             grid-cols-1
             sm:grid-cols-2
