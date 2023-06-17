@@ -39,6 +39,7 @@ const ListingHead: React.FC<ListingHeadProps> = ({
                     alt={title}
                     fill
                     className="object-cover w-full"
+                    priority={true}
 
                     />
                 <div className="absolute top-5 right-5">
