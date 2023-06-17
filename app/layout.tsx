@@ -13,8 +13,8 @@ import ClientOnly from './components/ClientOnly';
 import getCurrentUser from './actions/getCurrentUser';
 
 export const metadata = {
-  title: 'Airbnb',
-  description: 'Airbnb Clone',
+  title: 'Venue',
+  description: 'an application intended to be used by schools or any organisations to list their assembly halls for private events and people to reserve them, with a feature set similar to airbnb',
 }
 
 const font = Nunito({
