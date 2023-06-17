@@ -40,8 +40,8 @@ const EventsClient: React.FC<EventsClientProps> = ({
 
         <Container>
             <Heading
-                title="Your Events"
-                subtitle="Here are the events you've hosted to or are going to."
+                title="Your Bookings"
+                subtitle="Here are all the venue bookings you have hosted in the past or have scheduled for the future."
             />
             <div className="
                 mt-10
