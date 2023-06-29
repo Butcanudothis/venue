@@ -113,7 +113,7 @@ Please make sure your code adheres to the existing code style and conventions.
 
 ## Credits
 
-This project is inspired by the tutorial: [Build an Airbnb Clone with Next.js 13 App Router](https://www.youtube.com/watch?v=c_-b_isI4vg) by [YouTube User](https://www.youtube.com/user/username).
+This project is inspired by the tutorial: [Build an Airbnb Clone with Next.js 13 App Router](https://www.youtube.com/watch?v=c_-b_isI4vg) by [Code with Antonio](https://www.youtube.com/@codewithantonio)
 
 ## License
 
